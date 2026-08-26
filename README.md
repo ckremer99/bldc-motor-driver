@@ -10,6 +10,8 @@ Using claude, I obtained a rough estimate for drone weight range to save researc
 **Started:** — Aug 26, 2026
 **Target completion:** — Sept 10, 2026
 
+[![System Block Diagram]('Block Diagram BLDC Motor Controller - R1')]
+
 ## Project Summary
 Design, build, and verify a sensored BLDC motor driver (six-step commutation), 24–48V DC input, with input EMI filtering, current sensing/protection, and closed-loop speed control.
 
