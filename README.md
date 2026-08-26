@@ -13,11 +13,39 @@ Using claude, I obtained a rough estimate for drone weight range to save researc
 ## Project Summary
 Design, build, and verify a sensored BLDC motor driver (six-step commutation), 24–48V DC input, with input EMI filtering, current sensing/protection, and closed-loop speed control.
 
-## Active Tasks 
+## Project Deliverables 
+- [ ] Simulation Files for drone dynamics, IV input/output controller characteristics
+- [ ] Circuit Test Report
+- [ ] Full Schematic of motor controller
+- [ ] BOM
+- [ ] Total cost of motor controller. 
 
-- Get Specific Drone Parameters
-- Calculate Peak Power Drone Ratings
-- Estimate Dynamic Characteristics Of Drone
+## Tasklist 
+
+### Drone Requirement Definitions
+- [ ] Get Specific Drone Parameters
+    - Obtain Motor P/N
+    - Obtain Battery Cell Characteristics
+
+- [ ] Calculate Peak Power Drone Ratings
+- [ ] Estimate Dynamic Characteristics Of Drone
+
+### Simulating Dynamic Behavior of Drone Mechanics
+- [ ] Obtain state-space model of drone based on specifications
+- [ ] Simulate in MATLAB (c)
+- [ ] Using I-V characteristics from prev. step obtain specs for power converter.
+
+### Simulating Controller Driver in MATLAB (c)
+- [ ] TBD
+
+### Circuit Construction and Simulation 
+- [ ] Find components on digikey
+- [ ] Simulate in LTSPICE
+- [ ] Calculate Circuit Performance Under Varying Load 
+
+### EMI Filter Design
+- [ ] Estimate EMI components
+- [ ] Design EMI filters 
 
 ## Project Schedule
 
