@@ -60,4 +60,3 @@ gantt
 | 6. Test | [Design Verification Test Report (DVTR)](06_Test/DVTR.md) | Not started |
 | 7. Retrospective | [Lessons Learned](07_Retrospective/Lessons_Learned.md) | Not started |
 
- them with real content.
