@@ -5,7 +5,7 @@
 **Date:** — 26-Aug-2026
 
 ## 1. Scope
-[What this board is, what system it's part of (hypothetical or real), what it is NOT responsible for.]
+This project walks though the design process. 
 
 ## 2. Applicable Documents
 [Any reference standards, datasheets, or parent-system requirements this derives from.]
@@ -33,18 +33,28 @@ We also need to consider reasonable controller specifications. Let's look at som
 
 Let's look at Batteries as well using the same design considerations. We also need to account for flight style.
 
+> Battery Pack: 6000 6S Battery Pack
+
+[Battery Information](https://maxamps.com/collections/lipo-5450mah-packs/products/lipo-5450-6s-22-2v-battery-pack?utm_medium=referral&utm_source=unmannedsystemstechnology.com)
+
+> Motor Model: MN501-S
+
+[Motor Datasheet](https://uav-en.tmotor.com/2018/navigato_0402/39.html)
+
+
+
 ---
 
 ### Driver Specifications
 | ID | Requirement | Rationale | Verification Method |
 |---|---|---|---|
-| REQ-001 | Input voltage range: __ to __ VDC | | Draw maximum input current to DC-DC converter then ensure line regulation is less than 5% |
+| REQ-001 | Input voltage range: 16 to 30 VDC | | Draw maximum input current to DC-DC converter then ensure line regulation is less than 5% |
 | REQ-002 | Max continuous output current: __ A | | Ensure load regulation is less then 5% |
 | REQ-003 | Speed control range: __ to __ RPM | | Ensure efficiency requirement is met at max-rpm |
-| REQ-004 | Commutation method: sensored six-step (Hall) | | Inspection |
-| REQ-005 | Speed command interface: __ digital | | Assess propeller speed is within 2.5% of speed command  |
+| REQ-004 | Commutation method: three-step (Reverse EMF) | | Inspection |
+| REQ-005 | Speed command interface: SPI | | Assess propeller speed is within 2.5% of speed command  |
 | REQ-006 | Overcurrent protection trip threshold: __ A, response time __ | | Test |
-| REQ-007 | Undervoltage lockout threshold: __ V | | Test |
+| REQ-007 | Undervoltage lockout threshold: 14 V | | Test |
 | REQ-008 | Operating temperature range: __ to __ °C | | Thermal camera analysis with driver drawing max steady-state current |
 
 Based on these specifications we can now calculate propeller sizes and motor specifications. 
