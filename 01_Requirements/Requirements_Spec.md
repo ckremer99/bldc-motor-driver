@@ -2,7 +2,7 @@
 **Document ID:** BLDC-HRS-001
 **Revision:** A
 **Author:** Cody Kremer
-**Date:** —
+**Date:** — 26-Aug-2026
 
 ## 1. Scope
 [What this board is, what system it's part of (hypothetical or real), what it is NOT responsible for.]
@@ -11,6 +11,26 @@
 [Any reference standards, datasheets, or parent-system requirements this derives from.]
 
 ## 3. Functional Requirements
+These requirements will be obtained by assessing the drone specifications. Each motor will contain it's own driver. This means we want the board and controller to be light-weight so the majority of the load can be the payload along with the chassis. We will define these in more detail in this document. 
+
+### Drone Specifications
+
+Based on claude, here are the expected drone weight specifications. From this the other specifications will be derived. 
+
+| Config | Realistic AUW |
+|---|---|
+| Quad, conservative (100W/motor) | ~1.5-2 kg |
+| Quad, upper end (150W/motor) | ~2.5-3 kg |
+
+*Note: These specifications given by claude. 
+
+
+These ranges give us our motor power specifications. Let's derive the rest of the motor range specifications. 
+
+
+
+
+### Driver Specifications
 | ID | Requirement | Rationale | Verification Method |
 |---|---|---|---|
 | REQ-001 | Input voltage range: __ to __ VDC | | Test |
@@ -21,6 +41,10 @@
 | REQ-006 | Overcurrent protection trip threshold: __ A, response time __ | | Test |
 | REQ-007 | Undervoltage lockout threshold: __ V | | Test |
 | REQ-008 | Operating temperature range: __ to __ °C | | Analysis |
+
+### Cost Specifications
+| ID | Requirement | Rational |
+|---|---|---|
 
 ## 4. EMI/EMC Requirements
 [Even informal — e.g., "conducted emissions on DC input shall not exceed X per CISPR 25 Class Y" — pick a real standard to practice against.]
@@ -34,5 +58,3 @@
 ## 7. Traceability
 [As you write DVTP test cases later, link each REQ-### to the test case ID that verifies it. Fill this in once 06_Test/DVTP.md exists.]
 
----
-*Fill-in guidance: each requirement should be a single, testable, unambiguous statement — avoid "should" (use "shall"), avoid vague terms like "adequate" or "sufficient." If you can't write a verification method for a requirement, it's not specific enough yet.*

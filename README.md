@@ -2,7 +2,9 @@
 
 **Purpose:** Solo portfolio project to build and demonstrate hands-on ownership of a full power-electronics design lifecycle, targeting the skill set for aerospace power electronics roles (motor drives, EMI filtering, worst-case analysis, formal V&V documentation).
 
-The motor-ratings that will be selected will be determined to drive a range of motors used in drone applications. This is to meet the design requirements in the specified timeline.
+The driver will be deigned to drive UAV motors used in drone applications. This will provide a practical circuit where realistic specifications can be used to practice desiging under real-world constraints. 
+
+Using claude, I obtained a rough estimate for drone weight range to save research time, as the scope of this project is mostly determining electrical requirements given the application. 
 
 **Status:** Defining Requirements
 **Started:** — Aug 26, 2026
@@ -10,6 +12,12 @@ The motor-ratings that will be selected will be determined to drive a range of m
 
 ## Project Summary
 Design, build, and verify a sensored BLDC motor driver (six-step commutation), 24–48V DC input, with input EMI filtering, current sensing/protection, and closed-loop speed control.
+
+## Active Tasks 
+
+- Get Specific Drone Parameters
+- Calculate Peak Power Drone Ratings
+- Estimate Dynamic Characteristics Of Drone
 
 ## Project Schedule
 
@@ -60,3 +68,13 @@ gantt
 | 6. Test | [Design Verification Test Report (DVTR)](06_Test/DVTR.md) | Not started |
 | 7. Retrospective | [Lessons Learned](07_Retrospective/Lessons_Learned.md) | Not started |
 
+## Research and Sources
+
+| Question Answered | Link(s) | Additional Notes |
+|---|---|---|
+| Fundamentals of Drone Drivers | [Drone Driver Design Resource](https://www.edn.com/design-fundamentals-for-drone-motor-controller/) | Provides and overview of drone controller design |
+| Drone Calculations | [Flight Characteristics](https://news.quadpartpicker.com/how-to-estimate-and-calculate-drone-flight-characteristics/) | Formulas for dynamic characteristics system needs to handle. |
+
+
+
+## Problems Encountered and Solutions
