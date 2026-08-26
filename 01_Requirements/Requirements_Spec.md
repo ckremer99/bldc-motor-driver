@@ -14,21 +14,17 @@
 These requirements will be obtained by assessing the drone specifications. Each motor will contain it's own driver. This means we want the board and controller to be light-weight so the majority of the load can be the payload along with the chassis. We will define these in more detail in this document. 
 
 ### Drone Specifications
-
-Based on claude, here are the expected drone weight specifications. From this the other specifications will be derived. 
-
-| Config | Realistic AUW |
+Drone Performance Specifications 
+| Specification | Value |
 |---|---|
-| Quad, conservative (100W/motor) | ~1.5-2 kg |
-| Quad, upper end (150W/motor) | ~2.5-3 kg |
+| Thrust to Weight Ratio | 2:1 |
+| Weight | 1 kg | 
+| Number of Motors | 4 |
+| Thrust Per Moter | 500 g |
+| Max Altitude | 10,000 ft. |
+| Air Density @ 10000 ft. | 0.001756 slugs/ft³ |
 
-*Note: These specifications given by claude. 
-
-
-These ranges give us our motor power specifications. Let's derive the rest of the motor range specifications. 
-
-
-
+---
 
 ### Driver Specifications
 | ID | Requirement | Rationale | Verification Method |
@@ -41,6 +37,8 @@ These ranges give us our motor power specifications. Let's derive the rest of th
 | REQ-006 | Overcurrent protection trip threshold: __ A, response time __ | | Test |
 | REQ-007 | Undervoltage lockout threshold: __ V | | Test |
 | REQ-008 | Operating temperature range: __ to __ °C | | Analysis |
+
+Based on these specifications we can now calculate propeller sizes and motor specifications. 
 
 ### Cost Specifications
 | ID | Requirement | Rational |
