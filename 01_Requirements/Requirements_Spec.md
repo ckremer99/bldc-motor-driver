@@ -14,7 +14,9 @@
 These requirements will be obtained by assessing the drone specifications. Each motor will contain it's own driver. This means we want the board and controller to be light-weight so the majority of the load can be the payload along with the chassis. We will define these in more detail in this document. 
 
 ### Drone Specifications
-Drone Performance Specifications 
+
+This drone will be capable of flight at high-altitude (mountainous regions) optimized for battery life and aireal image capturing. The drone should spend most of its time hovering and climbing. We will define the flight characteristics to move upward at a constant rate of 10 m/s. Accelerating up to 2 m/s^2 upward. This requires a maximum thrust to be the drones weight times 2 m/s^2. The 10 m/s constraint reduces the need to consider air resistance from the chassis. 
+
 | Specification | Value |
 |---|---|
 | Thrust to Weight Ratio | 2:1 |
@@ -23,24 +25,34 @@ Drone Performance Specifications
 | Thrust Per Moter | 500 g |
 | Max Altitude | 10,000 ft. |
 | Air Density @ 10000 ft. | 0.001756 slugs/ft³ |
+| Flight Time @ Sea-Level  | 25 min |
+
+The altitude constraint suggests the need for a larger propeller size with a lower KV rating. This will put more current demands, which is an important consideration for battery selection. 
+
+We also need to consider reasonable controller specifications. Let's look at some IGBT's considering cost, availability. 
+
+Let's look at Batteries as well using the same design considerations. We also need to account for flight style.
 
 ---
 
 ### Driver Specifications
 | ID | Requirement | Rationale | Verification Method |
 |---|---|---|---|
-| REQ-001 | Input voltage range: __ to __ VDC | | Test |
-| REQ-002 | Max continuous output current: __ A | | Test/Analysis |
-| REQ-003 | Speed control range: __ to __ RPM | | Test |
+| REQ-001 | Input voltage range: __ to __ VDC | | Draw maximum input current to DC-DC converter then ensure line regulation is less than 5% |
+| REQ-002 | Max continuous output current: __ A | | Ensure load regulation is less then 5% |
+| REQ-003 | Speed control range: __ to __ RPM | | Ensure efficiency requirement is met at max-rpm |
 | REQ-004 | Commutation method: sensored six-step (Hall) | | Inspection |
-| REQ-005 | Speed command interface: __ (PWM / analog / digital) | | Test |
+| REQ-005 | Speed command interface: __ digital | | Assess propeller speed is within 2.5% of speed command  |
 | REQ-006 | Overcurrent protection trip threshold: __ A, response time __ | | Test |
 | REQ-007 | Undervoltage lockout threshold: __ V | | Test |
-| REQ-008 | Operating temperature range: __ to __ °C | | Analysis |
+| REQ-008 | Operating temperature range: __ to __ °C | | Thermal camera analysis with driver drawing max steady-state current |
 
 Based on these specifications we can now calculate propeller sizes and motor specifications. 
 
 ### Cost Specifications
+
+Since the project is to design driver board for a drone with the following specifications, I will determine a reasonable drone budget with the specifications and allocate a typical driver amount from the specifications derived from the information above. 
+
 | ID | Requirement | Rational |
 |---|---|---|
 
