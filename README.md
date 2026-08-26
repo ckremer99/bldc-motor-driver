@@ -60,5 +60,4 @@ gantt
 | 6. Test | [Design Verification Test Report (DVTR)](06_Test/DVTR.md) | Not started |
 | 7. Retrospective | [Lessons Learned](07_Retrospective/Lessons_Learned.md) | Not started |
 
-## How to Use This
-Work top to bottom, phase by phase — resist jumping to schematics before requirements are written, and resist testing before a DVTP exists. That sequencing discipline is itself part of what you're practicing. Each template has fill-in prompts; delete the prompts as you replace them with real content.
+ them with real content.
