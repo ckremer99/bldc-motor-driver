@@ -120,4 +120,6 @@ Solution: Take an iterative design approach during the planning phase.
 - Cost trimming can happen early
 - Gives numerical values early giving a starting point on how the numbers relate. 
 
+## Project Takeaways
 
+- Use tools available to save time and resources. 
