@@ -58,10 +58,15 @@ Refer to [Calculations and Analysis](Calculations_and_Analysis.md) for derivatio
 | REQ-008 | Operating temperature range: -20 to 175 °C | Handles temps at altitude along with max switch ratings | Thermal camera analysis with driver drawing max steady-state current |
 
 ## 4. EMI/EMC Requirements
-[Even informal — e.g., "conducted emissions on DC input shall not exceed X per CISPR 25 Class Y" — pick a real standard to practice against.]
+- [ ] Perform research of standards
+- [ ] Determine realistic requirements
+- [ ] Find models for EMI in circuit design
 
 ## 5. Environmental / Mechanical Requirements
-[Board size constraints, connector types, mounting.]
+
+- [ ] Chassis constraints 
+- [ ] Component weight breakdown
+- [ ] Board Dimensions
 
 ## 6. Safety Requirements
 Protections: reverse-polarity; overcurrent

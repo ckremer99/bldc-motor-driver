@@ -101,6 +101,7 @@ gantt
 | 6. Test | [Design Verification Test Procedure (DVTP)](06_Test/DVTP.md) | Not started |
 | 6. Test | [Design Verification Test Report (DVTR)](06_Test/DVTR.md) | Not started |
 | 7. Retrospective | [Lessons Learned](07_Retrospective/Lessons_Learned.md) | Not started |
+| Chassis Design Guide | [Boston University's Guide](https://sites.bu.edu/uav/first-build/step1/)
 
 ## Research and Sources
 
@@ -109,6 +110,7 @@ gantt
 | Fundamentals of Drone Drivers | [Drone Driver Design Resource](https://www.edn.com/design-fundamentals-for-drone-motor-controller/) | Provides and overview of drone controller design |
 | Drone Calculations | [Flight Characteristics](https://news.quadpartpicker.com/how-to-estimate-and-calculate-drone-flight-characteristics/) | Formulas for dynamic characteristics system needs to handle. |
 | Drone Part Selection | [Guide Part Selection](https://news.quadpartpicker.com/how-to-pick-motors-propellers-escs-and-lipo-batteries-for-your-fpv-quad/)<br>[T-Motor Selection Guide](https://shop.tmotor.com/blog/drone-motor-size-chart?srsltid=AfmBOorPpQ9EeZD_yIzcbyiBnF-B2rKL4ujpZodHljFC1filVFW6Nbga) | Tutorial showing how to use table from motor spec |  
+| EMI for Aircraft Applications | [Controlling the EMI effects of aircraft avionics](https://www.aerospacemanufacturinganddesign.com/article/amd0415-aircraft-avionics-emi-effects/) | Guide for determining EMI constraints in airborn applications
 
 
 ## Problems Encountered and Solutions
