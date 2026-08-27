@@ -57,8 +57,6 @@ Thrust coefficient not specified. We will need to find from motor thrust table.
 T = 5000 gf total. Thrust per motor: 1250 gf. 
 ![load test data for motor with prop](images/load_test_data.png)
 
-TODO: ADJUST CALCULATION BASED ON THE 1700 KV TABLE
-
 Altitude Calculations:
 
 At 10,000 ft (ρ = 0.9046 kg/m³) only the RPM and density change. Scale n^2 (rps)^2 by sqrt of density ratio between altitude and sea-level (1.35). RPS @ 10,000 ft -> n = √(1.35*182,329) = 496 rps -> 29,767 rpm
