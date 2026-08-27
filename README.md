@@ -16,6 +16,7 @@ Using claude, I obtained a rough estimate for drone weight range to save researc
 Design, build, and verify a sensored BLDC motor driver (six-step commutation), 24–48V DC input, with input EMI filtering, current sensing/protection, and closed-loop speed control.
 
 ## Project Deliverables 
+- [x] Specifications 
 - [ ] Simulation Files: motor+propeller plant model and closed-loop controller (state-space, Simulink)
 - [ ] Circuit Test Report
 - [ ] Full Schematic of motor controller
@@ -120,6 +121,11 @@ Solution: Take an iterative design approach during the planning phase.
 - Cost trimming can happen early
 - Gives numerical values early giving a starting point on how the numbers relate. 
 
+#### Misread a Data Table and Wasted Time doing Extra Calculations 
+
+Solution: Collect all data before doing calculations, use AI to provide rough estimates. Once all data is together then manually calculate parameters. 
+
 ## Project Takeaways
 
 - Use tools available to save time and resources. 
+- Search components for application before trying to find specifications. This provides rough estimates. 

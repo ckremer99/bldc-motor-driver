@@ -32,7 +32,7 @@ From this motor calculation,
 
 Based on the Calculations, here is a suitable motor for this application. $35 instead of $100 per motor. 41g instead of 350g (almost 10-fold improvement!). 
 
-#### [BrotherHobby Avenger 2806.5 Motor - 870KV/1300KV/1460KV/1700KV](https://www.getfpv.com/brotherhobby-avenger-2806-5-motor-870kv-1300kv-1460kv-1700kv.html?vid=8055&gc_id=21805212384&g_special_campaign=true&gad_source=1&gad_campaignid=21805212384&gbraid=0AAAAAD8cN5Kuq-IfOitbzw_GL8UaSo2bc&gclid=CjwKCAjwwL_UBhAjEiwAEhuT5ADEHAjkh7gZ3n-AU1Sf_G2JTFoRa2S-CFk0gGRLpDZt2DXi9EnJoBoCpMIQAvD_BwE)
+#### [BrotherHobby Avenger 2806.5 Motor](https://brotherhobby.com/avenger-28065-motor-p00132p1.html)
 
 
 The motor has to run at 10,000 feet. We will calculate the minimum KV rating using formulas from the following source. [Drone Altitude Performance Formulas](https://news.quadpartpicker.com/how-to-estimate-and-calculate-drone-flight-characteristics/). 
@@ -54,31 +54,18 @@ Propeller Selection:
 #### Prop Specs
 Thrust coefficient not specified. We will need to find from motor thrust table. 
 
-T = 2500 gf total. Thrust per motor: 625 gf. 
+T = 5000 gf total. Thrust per motor: 1250 gf. 
 ![load test data for motor with prop](images/load_test_data.png)
 
 TODO: ADJUST CALCULATION BASED ON THE 1700 KV TABLE
 
-Rounding up to 750 gf on table, we can solve for CT using:
-- T = 750 gf
-- ρ = 1.225 kg/m^3 (sea level)
-- n^2 = 40,884 (rps)^2
-- D^4 = 1e-3 m^2 
+Altitude Calculations:
 
-CT = 0.147
+At 10,000 ft (ρ = 0.9046 kg/m³) only the RPM and density change. Scale n^2 (rps)^2 by sqrt of density ratio between altitude and sea-level (1.35). RPS @ 10,000 ft -> n = √(1.35*182,329) = 496 rps -> 29,767 rpm
 
-At 10,000 ft (ρ = 0.9046 kg/m³), T = 750 gf = 7.355 N, C_T = 0.1468, D⁴ = 1×10⁻³ m⁴:
+The motor is just outside 100% throttle range (only by 100). 100% throttle at altitude, the motor isn't fighting the same load it was at sea level — it will spin faster than 29,610 RPM at the same voltage, not get stuck at it, because there's less back-torque holding it down. The target of 29,767 RPM is only ~157 RPM above the sea-level 100%-throttle point, and the reduced air density more than accounts for that gap — likely hit that RPM well under 100% throttle at altitude, with lower current draw than the 49.2 A / 1170 W shown at sea level (since required thrust/torque is lower at that RPM too).
 
-n² = 7.355 / (0.1468 × 0.9046 × 0.001)
-n² = 7.355 / 1.328×10⁻⁴
-n² ≈ 55,382 (rps)²
-
-n = √55,382 ≈ 235.3 rps
-
-Convert to RPM:
-235.3 × 60 ≈ 14,120 RPM
-
-Looking at the load test data table, looking at the calculated RPM we find the voltage is within range for the 1700KV motor. The current will be lower at altitude so no need to calculate the current at altitude - requirements will be met. 
+Important consideration is that driving the motor past that RPM risks overloading the motor. The 100% throttle isn't continuous, but since the drone will not be maneuvering up at full load more than 50% of the time, temperature will not be an issue.
 
 ### Important Motor Specs: 
 ![Motor Specs Image](images/motor_specs.png)
@@ -86,17 +73,16 @@ Looking at the load test data table, looking at the calculated RPM we find the v
 
 ### Maxiumum I-V Characteristics for Motor
 
-Since the thrust to weight ratio is 2:1, and the weight of the unit is at maximum 2.5 kg, then the maximum thrust is 2500*2/4 = 1250 gf. Based on the table from the motor load test data, the operating point at sea-level will be ~35% throttle. We'll round up to 40% throttle. This gives us an operating point of 24V, 5.7 A. We will define the driver specification to be Vmax = 30V and Imax = 6.5 A. 
+We will look at the current at 100% motor throttle to determine maximum driver current. Practically, since the thrust will be lower than the specified table, current will be lower than this value. Regardless, let's make the current specification worst-case scenario: 49.2 A. Giving 10% margin we get ~55 A. This will be the driver rating.
 
 ### MOSFET Selection: 
 
-Vdsmax > 33V with a 10% margin. Ids max 7.15V. To get an idea of some switches, I will search on digikey mosfets around these specifications. 
+Vdsmax = ~27V with a 10% margin. Let's round to 30V for additional wiggle-room. I will search on digikey mosfets around these specifications. 
 
-[N-Channel 30 V 7.44A (Ta) 940mW (Ta) Surface Mount U-DFN3030-8](https://www.digikey.com/en/products/detail/diodes-incorporated/DMG4800LFG-7/2192623)
+Vds max > 30V
+Ids max > 55A
 
-This MOSFET has a low RDS_on maximum of 17 mOhms. The switching characteristics of this MOSFET has short turn on and off times (ns range). 
+[TK7R7P10PL](https://www.digikey.com/en/products/detail/toshiba-semiconductor-and-storage/TK7R7P10PL-RQ/10447111)
 
-![MOSFET Switching Times](images/mosfet_dynamic_characteristics.png)
-
-This switch costs $10.98 for a quantity of 25. We'll need 24 per drone. 
+$45 for qty 50 -> 2 drones
 

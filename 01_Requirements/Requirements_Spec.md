@@ -32,37 +32,30 @@ This drone will be capable of flight at high-altitude (mountainous regions) opti
 | Specification | Value |
 |---|---|
 | Thrust to Weight Ratio | 2:1 |
-| Weight | 1 kg | 
+| Weight | 2.5 kg | 
 | Number of Motors | 4 |
-| Thrust Per Moter | 500 g |
 | Max Altitude | 10,000 ft. |
-| Air Density @ 10000 ft. | 0.001756 slugs/ft³ |
 | Flight Time @ Sea-Level  | 25 min |
+
+Note: Changed weight spec from 1 kg to 2.5 kg 
+- Justification: Supports heavier payload and makes project more interesting. 
+
 
 ---
 
-
+Refer to [Calculations and Analysis](Calculations_and_Analysis.md) for derivations. 
 
 ### Driver Specifications
 | ID | Requirement | Rationale | Verification Method |
 |---|---|---|---|
-| REQ-001 | Input voltage range: 16 to 30 VDC | | Draw maximum input current to DC-DC converter then ensure line regulation is less than 5% |
-| REQ-002 | Max continuous output current: 3.0 A | | Ensure load regulation is less then 5% |
-| REQ-003 | Speed control range: ___ to 3000 RPM | | Ensure efficiency requirement is met at max-rpm |
-| REQ-004 | Commutation method: three-step (Reverse EMF) | | Inspection |
-| REQ-005 | Speed command interface: SPI | | Assess propeller speed is within 2.5% of speed command  |
-| REQ-006 | Overcurrent protection trip threshold: __ A, response time __ | | Test |
-| REQ-007 | Undervoltage lockout threshold: 14 V | | Test |
-| REQ-008 | Operating temperature range: __ to __ °C | | Thermal camera analysis with driver drawing max steady-state current |
-
-Based on these specifications we can now calculate propeller sizes and motor specifications. 
-
-### Cost Specifications
-
-Since the project is to design driver board for a drone with the following specifications, I will determine a reasonable drone budget with the specifications and allocate a typical driver amount from the specifications derived from the information above. 
-
-| ID | Requirement | Rational |
-|---|---|---|
+| REQ-001 | Input voltage range: 16 to 30 VDC | Refer to calculations| Draw maximum input current to DC-DC converter then ensure line regulation is less than 5% |
+| REQ-002 | Max continuous output current: 55 A | Refer to calculations | Ensure load regulation is less then 5% |
+| REQ-003 | Speed control range: 11,000 to 30,000 RPM | Range of table. | Ensure efficiency requirement is met at max-rpm |
+| REQ-004 | Commutation method: six-step (Reverse EMF) | No hall-effect sensor in motor| Tach measurement to obtain error |
+| REQ-005 | Speed command interface: SPI | Not many slave devices and most reliable. Simplest | Assess propeller speed is within 2.5% of speed command  |
+| REQ-006 | Overcurrent protection trip threshold: 60 A, response time 100 us | Temp can't increase dramatically in that timeframe | short circuit using switch and measure time between events using uC to read fault flag |
+| REQ-007 | Undervoltage lockout threshold: 14 V | Places strain on boost converter at that voltage | Digital power supply adjustments |
+| REQ-008 | Operating temperature range: -20 to 175 °C | Handles temps at altitude along with max switch ratings | Thermal camera analysis with driver drawing max steady-state current |
 
 ## 4. EMI/EMC Requirements
 [Even informal — e.g., "conducted emissions on DC input shall not exceed X per CISPR 25 Class Y" — pick a real standard to practice against.]
