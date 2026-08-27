@@ -32,7 +32,8 @@ From this motor calculation,
 
 Based on the Calculations, here is a suitable motor for this application. $35 instead of $100 per motor. 41g instead of 350g (almost 10-fold improvement!). 
 
-### BrotherHobby Avenger 2806.5 Motor - 870KV/1300KV/1460KV/1700KV
+#### [BrotherHobby Avenger 2806.5 Motor - 870KV/1300KV/1460KV/1700KV](https://www.getfpv.com/brotherhobby-avenger-2806-5-motor-870kv-1300kv-1460kv-1700kv.html?vid=8055&gc_id=21805212384&g_special_campaign=true&gad_source=1&gad_campaignid=21805212384&gbraid=0AAAAAD8cN5Kuq-IfOitbzw_GL8UaSo2bc&gclid=CjwKCAjwwL_UBhAjEiwAEhuT5ADEHAjkh7gZ3n-AU1Sf_G2JTFoRa2S-CFk0gGRLpDZt2DXi9EnJoBoCpMIQAvD_BwE)
+
 
 The motor has to run at 10,000 feet. We will calculate the minimum KV rating using formulas from the following source. [Drone Altitude Performance Formulas](https://news.quadpartpicker.com/how-to-estimate-and-calculate-drone-flight-characteristics/). 
 
@@ -56,6 +57,8 @@ Thrust coefficient not specified. We will need to find from motor thrust table.
 T = 2500 gf total. Thrust per motor: 625 gf. 
 ![load test data for motor with prop](images/load_test_data.png)
 
+TODO: ADJUST CALCULATION BASED ON THE 1700 KV TABLE
+
 Rounding up to 750 gf on table, we can solve for CT using:
 - T = 750 gf
 - ρ = 1.225 kg/m^3 (sea level)
@@ -75,22 +78,25 @@ n = √55,382 ≈ 235.3 rps
 Convert to RPM:
 235.3 × 60 ≈ 14,120 RPM
 
-Given this RPM from the table we have a current of around 12.7 A
-
-I_actual ≈ I_table × (ρ_altitude / ρ_sea-level) = 12.7 × (0.9046/1.225) ≈ 12.7 × 0.7385 ≈ 9.4 A (Used claude - TODO: Verify)
-
+Looking at the load test data table, looking at the calculated RPM we find the voltage is within range for the 1700KV motor. The current will be lower at altitude so no need to calculate the current at altitude - requirements will be met. 
 
 ### Important Motor Specs: 
 ![Motor Specs Image](images/motor_specs.png)
 
-Weight of 4 motor modules: 1400g
-Weight Remaining: 2500g - 1400g = 1600g
 
-We also need to consider reasonable controller specifications. Let's look at some IGBT's considering cost, availability. 
+### Maxiumum I-V Characteristics for Motor
 
-#### IXSJ Series SiC MOSFETs
+Since the thrust to weight ratio is 2:1, and the weight of the unit is at maximum 2.5 kg, then the maximum thrust is 2500*2/4 = 1250 gf. Based on the table from the motor load test data, the operating point at sea-level will be ~35% throttle. We'll round up to 40% throttle. This gives us an operating point of 24V, 5.7 A. We will define the driver specification to be Vmax = 30V and Imax = 6.5 A. 
 
-Vds(max): 1200V 
-Condtinuous Ids(max): 28A-85A
-Drive Voltage: 18V (That's kinda a lot)
+### MOSFET Selection: 
+
+Vdsmax > 33V with a 10% margin. Ids max 7.15V. To get an idea of some switches, I will search on digikey mosfets around these specifications. 
+
+[N-Channel 30 V 7.44A (Ta) 940mW (Ta) Surface Mount U-DFN3030-8](https://www.digikey.com/en/products/detail/diodes-incorporated/DMG4800LFG-7/2192623)
+
+This MOSFET has a low RDS_on maximum of 17 mOhms. The switching characteristics of this MOSFET has short turn on and off times (ns range). 
+
+![MOSFET Switching Times](images/mosfet_dynamic_characteristics.png)
+
+This switch costs $10.98 for a quantity of 25. We'll need 24 per drone. 
 
