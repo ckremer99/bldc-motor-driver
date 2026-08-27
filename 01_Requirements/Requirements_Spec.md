@@ -8,7 +8,19 @@
 This project walks though the design process. 
 
 ## 2. Applicable Documents
-[Any reference standards, datasheets, or parent-system requirements this derives from.]
+> Battery Pack: 6000 6S Battery Pack
+
+[Battery Information](https://maxamps.com/collections/lipo-5450mah-packs/products/lipo-5450-6s-22-2v-battery-pack?utm_medium=referral&utm_source=unmannedsystemstechnology.com)
+
+> Motor Model: MN501-S
+
+[Motor Datasheet](https://uav-en.tmotor.com/2018/navigato_0402/39.html)
+
+
+To select the propeller, we want to minimize the output current to make the FET selection less constraining. Based on the propeller selection guide given in the motor datasheet, we find the propeller that minimizes the current draw at 916g of thrust to be 2.87A. The output voltage at this thrust is 24.35 
+> Propeller Model: T-MOTOR P22×6.6 Polish Carbon Fiber Drone Propeller
+
+[Propeller Link](https://shop.tmotor.com/products/p22-6-6-carbon-fiber-uav-propeller?srsltid=AfmBOoruno4ZtllN6BsG9sj8xBzgtMtzC_fPKD7mWsG-d3jCablFLd4J)
 
 ## 3. Functional Requirements
 These requirements will be obtained by assessing the drone specifications. Each motor will contain it's own driver. This means we want the board and controller to be light-weight so the majority of the load can be the payload along with the chassis. We will define these in more detail in this document. 
@@ -26,27 +38,6 @@ This drone will be capable of flight at high-altitude (mountainous regions) opti
 | Max Altitude | 10,000 ft. |
 | Air Density @ 10000 ft. | 0.001756 slugs/ft³ |
 | Flight Time @ Sea-Level  | 25 min |
-
-The altitude constraint suggests the need for a larger propeller size with a lower KV rating. This will put more current demands, which is an important consideration for battery selection. 
-
-We also need to consider reasonable controller specifications. Let's look at some IGBT's considering cost, availability. 
-
-Let's look at Batteries as well using the same design considerations. We also need to account for flight style.
-
-> Battery Pack: 6000 6S Battery Pack
-
-[Battery Information](https://maxamps.com/collections/lipo-5450mah-packs/products/lipo-5450-6s-22-2v-battery-pack?utm_medium=referral&utm_source=unmannedsystemstechnology.com)
-
-> Motor Model: MN501-S
-
-[Motor Datasheet](https://uav-en.tmotor.com/2018/navigato_0402/39.html)
-
-
-To select the propeller, we want to minimize the output current to make the FET selection less constraining. Based on the propeller selection guide given in the motor datasheet, we find the propeller that minimizes the current draw at 916g of thrust to be 2.87A. The output voltage at this thrust is 24.35 
-> Propeller Model: T-MOTOR P22×6.6 Polish Carbon Fiber Drone Propeller
-
-[Propeller Link](https://shop.tmotor.com/products/p22-6-6-carbon-fiber-uav-propeller?srsltid=AfmBOoruno4ZtllN6BsG9sj8xBzgtMtzC_fPKD7mWsG-d3jCablFLd4J)
-
 
 ---
 

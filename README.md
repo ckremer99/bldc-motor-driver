@@ -110,5 +110,14 @@ gantt
 | Drone Part Selection | [Guide Part Selection](https://news.quadpartpicker.com/how-to-pick-motors-propellers-escs-and-lipo-batteries-for-your-fpv-quad/)<br>[T-Motor Selection Guide](https://shop.tmotor.com/blog/drone-motor-size-chart?srsltid=AfmBOorPpQ9EeZD_yIzcbyiBnF-B2rKL4ujpZodHljFC1filVFW6Nbga) | Tutorial showing how to use table from motor spec |  
 
 
-
 ## Problems Encountered and Solutions
+
+#### Component Selection uses Generous Parameters but does not Account For Cost.
+
+Solution: Take an iterative design approach during the planning phase. 
+
+- Constraints the iteration to the design phase so major changes to requirements are not necessary in later design phases. 
+- Cost trimming can happen early
+- Gives numerical values early giving a starting point on how the numbers relate. 
+
+
