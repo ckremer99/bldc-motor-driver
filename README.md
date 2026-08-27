@@ -10,7 +10,7 @@ Using claude, I obtained a rough estimate for drone weight range to save researc
 **Started:** — Aug 26, 2026
 **Target completion:** — Sept 10, 2026
 
-![System Block Diagram](Block%20Diagram%20BLDC%20Motor%20Controller%20-%20R1.png)
+![System Block Diagram](08_Block_Diagrams/Block%20Diagram%20BLDC%20Motor%20Controller%20-%20R1.png)
 
 ## Project Summary
 Design, build, and verify a sensored BLDC motor driver (six-step commutation), 24–48V DC input, with input EMI filtering, current sensing/protection, and closed-loop speed control.
@@ -25,11 +25,11 @@ Design, build, and verify a sensored BLDC motor driver (six-step commutation), 2
 ## Tasklist 
 
 ### Drone Requirement Definitions
-- [ ] Get Specific Drone Parameters
+- [x] Get Specific Drone Parameters
     - Obtain Motor P/N
     - Obtain Battery Cell Characteristics
 
-- [ ] Calculate Peak Power Drone Ratings
+- [x] Calculate Peak Power Drone Ratings
 - [ ] Estimate Dynamic Characteristics Of Drone
 
 ### Electromechanical Plant Modeling (Motor + Propeller Load)

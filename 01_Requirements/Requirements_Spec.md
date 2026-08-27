@@ -42,15 +42,22 @@ Let's look at Batteries as well using the same design considerations. We also ne
 [Motor Datasheet](https://uav-en.tmotor.com/2018/navigato_0402/39.html)
 
 
+To select the propeller, we want to minimize the output current to make the FET selection less constraining. Based on the propeller selection guide given in the motor datasheet, we find the propeller that minimizes the current draw at 916g of thrust to be 2.87A. The output voltage at this thrust is 24.35 
+> Propeller Model: T-MOTOR P22×6.6 Polish Carbon Fiber Drone Propeller
+
+[Propeller Link](https://shop.tmotor.com/products/p22-6-6-carbon-fiber-uav-propeller?srsltid=AfmBOoruno4ZtllN6BsG9sj8xBzgtMtzC_fPKD7mWsG-d3jCablFLd4J)
+
 
 ---
+
+
 
 ### Driver Specifications
 | ID | Requirement | Rationale | Verification Method |
 |---|---|---|---|
 | REQ-001 | Input voltage range: 16 to 30 VDC | | Draw maximum input current to DC-DC converter then ensure line regulation is less than 5% |
-| REQ-002 | Max continuous output current: __ A | | Ensure load regulation is less then 5% |
-| REQ-003 | Speed control range: __ to __ RPM | | Ensure efficiency requirement is met at max-rpm |
+| REQ-002 | Max continuous output current: 3.0 A | | Ensure load regulation is less then 5% |
+| REQ-003 | Speed control range: ___ to 3000 RPM | | Ensure efficiency requirement is met at max-rpm |
 | REQ-004 | Commutation method: three-step (Reverse EMF) | | Inspection |
 | REQ-005 | Speed command interface: SPI | | Assess propeller speed is within 2.5% of speed command  |
 | REQ-006 | Overcurrent protection trip threshold: __ A, response time __ | | Test |
@@ -73,7 +80,7 @@ Since the project is to design driver board for a drone with the following speci
 [Board size constraints, connector types, mounting.]
 
 ## 6. Safety Requirements
-[Protections: reverse polarity, overcurrent, overtemperature, etc.]
+Protections: reverse-polarity; overcurrent
 
 ## 7. Traceability
 [As you write DVTP test cases later, link each REQ-### to the test case ID that verifies it. Fill this in once 06_Test/DVTP.md exists.]
