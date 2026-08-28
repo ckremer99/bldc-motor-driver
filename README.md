@@ -64,14 +64,22 @@ gantt
     todayMarker off
 
     section Requirements
-    HRS & ICD                          :req, 2026-08-26, 2d
+    HRS & ICD                          :done, req, 2026-08-26, 2d
 
-    section Design
-    Schematic, SPICE, EMI              :design1, after req, 3d
-    Plant Model & Controller Sim       :design2, after design1, 3d
+    section Planning & Simulation
+    Project Planning & Plant/Controller Sim :active, plansim, after req, 3d
+
+    section Schematic Capture
+    Schematic Capture                  :schem, after plansim, 3d
+
+    section SPICE Analysis
+    SPICE Analysis                     :spice, after plansim, 3d
+
+    section EMI Requirements
+    EMI Requirements                   :emi, after plansim, 2d
 
     section Analysis
-    WCCA, Derating+Thermal (merged)    :analysis, after design2, 3d
+    WCCA, Derating+Thermal (merged)    :analysis, after schem spice emi, 3d
 
     section Layout
     PCB Layout Guidelines              :layout, after analysis, 3d
@@ -126,6 +134,11 @@ Solution: Take an iterative design approach during the planning phase.
 #### Misread a Data Table and Wasted Time doing Extra Calculations 
 
 Solution: Collect all data before doing calculations, use AI to provide rough estimates. Once all data is together then manually calculate parameters. 
+
+#### Simulation and Planning Should be Merged into one-phase, since accurate models for load are needed to define driver requirements. 
+
+- TODO: Find process to iterate through gaining estimates, simulating model based on estimates. 
+- Write an explicit list of all parameters needed to fully characterize the driver-board constraints. 
 
 ## Project Takeaways
 

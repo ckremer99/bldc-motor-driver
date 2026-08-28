@@ -19,11 +19,12 @@ Commutation will take place using a 3-phase inverter. Trapasoidal waveform where
 - **Loop type Acceleration Command:** Since thrust for each prop can be calculated from XYZ components of accelerometer, and accuracy of feedback from acceleometer is limited, simple proportional control for acceleration would be suitable since true error has some inhearant uncertainty (unless if expensive LIDAR was used or some more accurate measurement of acceleration). 
 
 - **Block diagram:** 
-![block diagram acc](images/block_diagram_acc_control.png)
+![block diagram acc](Images/block_diagram_acc_control.png)
 
 
 - **Tuning approach:** [analytical vs. empirical — record gains and how you got them]
 - **Model results:**: Due to thrust being non-linear we will use an adaptive state-space model
+
 
 ## 3. Protection Logic
 [How overcurrent/UVLO faults interrupt PWM output — latched vs. auto-retry.]

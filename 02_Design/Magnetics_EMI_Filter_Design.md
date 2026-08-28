@@ -16,6 +16,7 @@
 | X-cap | | |
 | Y-cap | | |
 
+
 ## 4. Core Sizing / Saturation Check
 [Show the calculation: expected max DM current, verify it doesn't saturate the CM choke core given the flux-cancellation design.]
 
