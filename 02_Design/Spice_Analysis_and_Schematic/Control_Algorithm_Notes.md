@@ -26,6 +26,7 @@ Commutation will take place using a 3-phase inverter. Trapasoidal waveform where
 - **Model results:**: Due to thrust being non-linear we will use an adaptive state-space model
 
 
+
 ## 3. Protection Logic
 [How overcurrent/UVLO faults interrupt PWM output — latched vs. auto-retry.]
 
