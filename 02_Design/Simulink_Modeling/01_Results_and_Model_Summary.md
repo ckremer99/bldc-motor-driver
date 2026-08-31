@@ -59,3 +59,19 @@ This is simply a basic calculation of angular acceleration using the net torque 
 
 ## Motor Performance And Results. 
 
+The thrust was calculated using the constant based on calculations from the selected propeller. The thrust has a square relation to the angular velocity. As the diagram shows, the thrust settles to the required 2:1 thrust-to-weight ratio. 
+
+![Output Thrust Chart](Images/model_results_and_summary/output_thrust.png)
+
+The angular velocity has a similar transient response without the square relation that the thrust have. It meets the required rad/s to produce the necessary thrust. 
+
+![Output Angular Velocity](Images/model_results_and_summary/rad_s.png)
+
+The maximum voltage is 30V but less is needed to drive the thrust to the maximum thrust given from the 2:1 thrust to weight profile. 
+
+![Input Voltage Peak-to-Peak](Images/model_results_and_summary/input_voltage_pp.png)
+
+The maximum phase current (current needed to be handled by the switches) is around 20A. The DC-DC converter needs to be able to handle ~3x as much current. 
+
+![Output Current](Images/model_results_and_summary/output_current.png)
+
