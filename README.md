@@ -140,6 +140,11 @@ Solution: Collect all data before doing calculations, use AI to provide rough es
 - TODO: Find process to iterate through gaining estimates, simulating model based on estimates. 
 - Write an explicit list of all parameters needed to fully characterize the driver-board constraints. 
 
+#### Build entire simulink model without testing throughout the process. 
+- Ultimately this problem was due to poor planning. 
+- The model didn't work and to fix this I'm taking a systematic approach to developming the model rather than simply building everything from scratch. 
+- We can anticipate problems much easier when we plan. 
+
 ## Project Takeaways
 
 - Use tools available to save time and resources. 

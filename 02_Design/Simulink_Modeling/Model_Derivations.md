@@ -14,6 +14,14 @@ u_b = R • i_b + L\frac{di_b}{dt} + e_b \\[1.5ex]
 u_c = R • i_c + L\frac{di_c}{dt} + e_c
 $$
 
+Rearranging gives: 
+
+$$
+\frac{di_a}{dt}=\frac{1}{L}(u_a-R\,i_a-e_a) \\[1.5ex]
+\frac{di_b}{dt}=\frac{1}{L}(u_b-R\,i_b-e_b) \\[1.5ex]
+\frac{di_c}{dt}=\frac{1}{L}(u_c-R\,i_c-e_c)
+$$
+
 These equations show the voltage at the stator winding accounting for the resistive losses of the coil, the stator inductance, and the back-emf. 
 
 $$
@@ -24,11 +32,22 @@ e_C &= K_w • f(θ_e + \frac{2π}{3})\,•\,ω
 \end{align}
 $$
 
-### Mechanical Equations
+### Electromagnetic Torque
+
+The electromagnetic torque is found from the power balance between the electrical and mechanical domains: $e_A i_a + e_B i_b + e_C i_c = T_e\,ω$. Substituting the back-emf equations above, the $ω$ terms cancel, leaving torque as a function of rotor position and phase currents only (no division by $ω$, which avoids a singularity at standstill):
 
 $$
-T_{total}=T_{load}+J\,•\frac{dω}{dt} + b\,•\,ω
+T_e = K_w\Big(f(θ_e)\,i_a + f(θ_e - \tfrac{2π}{3})\,i_b + f(θ_e + \tfrac{2π}{3})\,i_c\Big)
 $$
+
+Accounting for mechanical torque: 
+
+$$
+T_{e}=T_{load}+J\,\frac{dω}{dt} + b\,ω \\[1.5ex]
+\frac{d\omega}{dt}=\frac{1}{J}(T_e-T_{load}-b\,\omega)
+$$
+
+
 
 ### Parameters Needed
 
@@ -36,8 +55,9 @@ $$
 |---|---|---|
 |Winding Resistance|$R$|$\Omega$|
 |Winding Inductance|$L$|$H$|
-|Pole Pairs|$K_w$|constant|
-|Rotor Inertia|$J$|$\text{kg}/m^2$
+|Back-EMF Constant|$K_w$|$V/(rad/s)$|
+|Viscous Damping Coefficient|$b$|$N•m/(rad/s)$|
+|Rotor Inertia|$J$|$\text{kg}•m^2$
 
 ### Finding Parameter Estimates
 
@@ -59,3 +79,54 @@ The user used a calucaltor to estimate a 1700 KV motor to be around $L=0.018\:mH
 Claude Cross-Check: Typical phase-to-phase inductance for a common 1700KV brushless (BLDC) motor—such as a 2207 or 2306 size drone motor—ranges between 3 µH and 15 µH (microhenries).
 
 Let's use $L=9 \mu H$ by taking the average of the range. Referring to the equations above, since current changes fast, this could induce quite a bit of uncertainty into the model, but without taking measurement with and LCR meter this is the best we can do in a reasonable amount of time. 
+
+### Calcuation of Mechanical Load Behavior Based on Measured Operating Point
+#### Done with Claude - Verified by Cody Kremer
+---
+
+Step 1 — Convert the operating point to SI units
+$$
+T = 2440\ \text{gf} \times 0.00980665\ \frac{\text{N}}{\text{gf}} \approx 23.93\ \text{N} \\
+\omega = \frac{2\pi n}{60} = \frac{2\pi (29610)}{60} \approx 3100.8\ \text{rad/s}
+$$
+Step 2 — Thrust coefficient (quadratic drag form)
+
+$$
+T = k_T \omega^2 \quad\Rightarrow\quad k_T = \frac{T}{\omega^2} \\
+k_T = \frac{23.93}{(3100.8)^2} \approx 2.49\times10^{-6}\ \frac{\text{N}\cdot\text{s}^2}{\text{rad}^2}
+$$
+
+Step 3 — Ideal (Froude/momentum theory) induced power
+
+$$
+A = \pi\left(\frac{D}{2}\right)^2, \qquad D = 0.1524\ \text{m} \;\Rightarrow\; A \approx 0.01824\ \text{m}^2 \\
+P_{ideal} = \frac{T^{3/2}}{\sqrt{2\rho A}}, \qquad \rho = 1.225\ \frac{\text{kg}}{\text{m}^3} \\
+P_{ideal} = \frac{(23.93)^{3/2}}{\sqrt{2(1.225)(0.01824)}} \approx 554\ \text{W}
+$$
+
+Step 4 — Actual power, correcting for propeller efficiency
+
+$$
+P_{actual} = \frac{P_{ideal}}{FM}, \qquad FM \approx 0.65 \\
+P_{actual} = \frac{554}{0.65} \approx 852\ \text{W}
+$$
+
+Step 5 — Torque at the operating point
+
+$$
+\tau = \frac{P_{actual}}{\omega} = \frac{852}{3100.8} \\\approx 0.275\ \text{N}\cdot\text{m}
+$$
+
+Step 6 — Torque (drag) coefficient
+
+$$
+\tau = k_Q \omega^2 \quad\Rightarrow\quad k_Q = \frac{\tau}{\omega^2}
+k_Q = \frac{0.275}{(3100.8)^2} \approx 2.86\times10^{-8}\ \frac{\text{N}\cdot\text{m}\cdot\text{s}^2}{\text{rad}^2}
+$$
+
+Combined closed-form for $k_Q$ (steps 3–6 collapsed into one expression):
+
+$$
+k_Q = \frac{T^{3/2}}{FM\sqrt{2\rho A}\,\omega^3}
+$$
+---
