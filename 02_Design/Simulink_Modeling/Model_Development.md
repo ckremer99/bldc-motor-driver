@@ -23,11 +23,11 @@ $$
 
 From the equation expressed in this form we construct the model using simulink blocks. 
 
-![simulink block diagram](Images/basic_diff_eq_in_simulink.png)
+![simulink block diagram](Images/model_development/basic_diff_eq_in_simulink.png)
 
 Here is the step response of the differential equation: 
 
-![step response](Images/basic_diff_eq_output.png)
+![step response](Images/model_development/basic_diff_eq_output.png)
 
 Using these principles we can implement the differential equations that govern the dynamic motor behavior. 
 

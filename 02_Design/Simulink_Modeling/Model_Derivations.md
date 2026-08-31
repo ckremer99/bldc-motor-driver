@@ -6,21 +6,47 @@ The objective of the simulink model is to determine the behavior of the drone ac
 
 ## Equations Governing BLDC Motor Behavior
 
-![bldc motor mechanical model](images/electromechanical_model_of_motor.png)
+![bldc motor mechanical model](Images/model_derivations/electromechanical_model_of_motor.png)
+
+IMPORTANT NOTE: This diagram shows u being measured from neutral while in the equations it is measured from ground. This is why we introduce the u_n term. 
 
 $$
-u_a = R • i_a + L\frac{di_a}{dt} + e_a \\[1.5ex]
-u_b = R • i_b + L\frac{di_b}{dt} + e_b \\[1.5ex]
-u_c = R • i_c + L\frac{di_c}{dt} + e_c
+u_a = R • i_a + L\frac{di_a}{dt} + e_a - u_n\\[1.5ex]
+u_b = R • i_b + L\frac{di_b}{dt} + e_b - u_n \\[1.5ex]
+u_c = R • i_c + L\frac{di_c}{dt} + e_c - u_n
 $$
 
 Rearranging gives: 
 
 $$
-\frac{di_a}{dt}=\frac{1}{L}(u_a-R\,i_a-e_a) \\[1.5ex]
-\frac{di_b}{dt}=\frac{1}{L}(u_b-R\,i_b-e_b) \\[1.5ex]
-\frac{di_c}{dt}=\frac{1}{L}(u_c-R\,i_c-e_c)
+\frac{di_a}{dt}=\frac{1}{L}(u_a-R\,i_a-e_a - u_n) \\[1.5ex]
+\frac{di_b}{dt}=\frac{1}{L}(u_b-R\,i_b-e_b - u_n) \\[1.5ex]
+\frac{di_c}{dt}=\frac{1}{L}(u_c-R\,i_c-e_c - u_n)
 $$
+
+To calculate $u_n$ refer to the image below:
+
+![wye config of bldc motor](Images/model_derivations/wye_model_of_bldc_motor.png)
+
+For an isolated (wye-connected, no neutral wire) motor, the three phase currents must sum to zero at every instant:
+
+$$
+i_a+i_b+i_c=0 \quad\Rightarrow\quad \frac{di_a}{dt}+\frac{di_b}{dt}+\frac{di_c}{dt}=0
+$$
+
+Summing the three KVL equations above and applying this constraint, the $R$ and $L$ terms cancel:
+
+$$
+u_a+u_b+u_c = R(i_a+i_b+i_c) + L\frac{d}{dt}(i_a+i_b+i_c) + (e_a+e_b+e_c) - 3u_n
+$$
+
+For the trapezoidal back-emf functions defined below, $f(\theta_e) + f(\theta_e-\tfrac{2\pi}{3}) + f(\theta_e+\tfrac{2\pi}{3})=0$ at every instant (the same 120°-symmetry that cancels the $\omega$ terms in the torque derivation), so $e_a+e_b+e_c=0$ and:
+
+$$
+u_n=\frac{u_a+u_b+u_c}{3}
+$$
+
+This form depends only on the three commanded terminal voltages, not on the phase currents — important for implementation, since solving a single phase's KVL equation for $u_n$ would leave it depending on $i_a$ and $\frac{di_a}{dt}$, which themselves depend on $u_n$, creating an algebraic loop with no independent input.
 
 These equations show the voltage at the stator winding accounting for the resistive losses of the coil, the stator inductance, and the back-emf. 
 
@@ -31,6 +57,7 @@ e_B &= K_w • f(θ_e - \frac{2π}{3})\,•\, ω \\
 e_C &= K_w • f(θ_e + \frac{2π}{3})\,•\,ω
 \end{align}
 $$
+
 
 ### Electromagnetic Torque
 
