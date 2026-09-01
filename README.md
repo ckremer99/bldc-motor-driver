@@ -17,9 +17,9 @@ Design, build, and verify a sensored BLDC motor driver (six-step commutation), 2
 
 ## Project Deliverables 
 - [x] Specifications 
-- [ ] Simulation Files: motor+propeller plant model and closed-loop controller (state-space, Simulink)
-- [ ] Circuit Test Report
-- [ ] Full Schematic of motor controller
+- [x] Simulation Files: motor+propeller plant model and closed-loop controller in Simulink
+- [ ] Simulation of Power System in Simulink
+- [ ] Full Schematic of motor controller using real components
 - [ ] BOM
 - [ ] Total cost of motor controller. 
 

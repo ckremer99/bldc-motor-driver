@@ -1,0 +1,8 @@
+# LTspice generated simulation output (large, regenerable)
+02_Design/Spice_Analysis_and_Schematic/Schematics/BLDC_Driver.raw
+
+# MATLAB/Simulink build cache and autosave files
+slprj/
+*.slxc
+*.autosave
+*.asv
