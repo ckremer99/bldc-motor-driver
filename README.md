@@ -95,21 +95,19 @@ gantt
 
 | Phase | Document | Status |
 |---|---|---|
-| 1. Requirements | [Requirements Spec (HRS)](01_Requirements/Requirements_Spec.md) | Not started |
-| 1. Requirements | [Interface Control Document (ICD)](01_Requirements/Interface_Control_Document.md) | Not started |
-| 2. Design | [Schematic Design Notes](02_Design/Schematic_Design_Notes.md) | Not started |
-| 2. Design | [SPICE Analysis](02_Design/SPICE_Analysis.md) | Not started |
-| 2. Design | [Control Algorithm / Simulink Notes](02_Design/Control_Algorithm_Notes.md) | Not started |
-| 2. Design | [Magnetics & EMI Filter Design](02_Design/Magnetics_EMI_Filter_Design.md) | Not started |
-| 3. Analysis | [Worst-Case Circuit Analysis (WCCA)](03_Analysis/Worst_Case_Circuit_Analysis.md) | Not started |
-| 3. Analysis | [Component Derating](03_Analysis/Component_Derating.md) | Not started |
-| 3. Analysis | [Thermal Analysis](03_Analysis/Thermal_Analysis.md) | Not started |
-| 4. Layout | [PCB Layout Guidelines](04_Layout/PCB_Layout_Guidelines.md) | Not started |
-| 5. Bring-up | [Bring-up Log](05_Bringup/Bringup_Log.md) | Not started |
-| 6. Test | [Design Verification Test Procedure (DVTP)](06_Test/DVTP.md) | Not started |
-| 6. Test | [Design Verification Test Report (DVTR)](06_Test/DVTR.md) | Not started |
-| 7. Retrospective | [Lessons Learned](07_Retrospective/Lessons_Learned.md) | Not started |
-| Chassis Design Guide | [Boston University's Guide](https://sites.bu.edu/uav/first-build/step1/)
+| 1. Requirements | [Requirements Spec (HRS)](01_Requirements/Requirements_Spec.md) | In Progress |
+| 1. Requirements | [Calculations and Analysis](01_Requirements/Calculations_and_Analysis.md) | In Progress |
+| 2. Design — Simulink (Motor Model) | [Results & Model Summary](02_Design/Simulink_Modeling/BLDC_Motor_Model/01_Results_and_Model_Summary.md) | In Progress |
+| 2. Design — Simulink (Motor Model) | [Model Derivations](02_Design/Simulink_Modeling/BLDC_Motor_Model/02_Model_Derivations.md) | In Progress |
+| 2. Design — Simulink (Motor Model) | [Model Development](02_Design/Simulink_Modeling/BLDC_Motor_Model/03_Model_Development.md) | In Progress |
+| 2. Design — Simulink (Power System) | [Power System Model Development](02_Design/Simulink_Modeling/Power_System_Model/01_Model_Development.md) | In Progress |
+| 2. Design — SPICE & Schematic | [Schematic Design Notes](02_Design/Spice_Analysis_and_Schematic/Schematic_Design_Notes.md) | Not started |
+| 2. Design — SPICE & Schematic | [SPICE Analysis](02_Design/Spice_Analysis_and_Schematic/SPICE_Analysis.md) | Not started |
+| 2. Design — SPICE & Schematic | [Control Algorithm Notes](02_Design/Spice_Analysis_and_Schematic/Control_Algorithm_Notes.md) | In Progress |
+| 3. Block Diagrams | [Block Diagram Revisions](03_Block_Diagrams/) | Reference images (R1–R3) |
+| Chassis Design Guide | [Boston University's Guide](https://sites.bu.edu/uav/first-build/step1/) | External reference |
+
+Directories for Analysis, Layout, Bring-up, Test, and Retrospective phases have not been created yet — see [Project Schedule](#project-schedule) above.
 
 ## Research and Sources
 
