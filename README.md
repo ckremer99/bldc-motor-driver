@@ -10,7 +10,7 @@ Using claude, I obtained a rough estimate for drone weight range to save researc
 **Started:** — Aug 26, 2026
 **Target completion:** — Sept 10, 2026
 
-![System Block Diagram](08_Block_Diagrams/Block%20Diagram%20BLDC%20Motor%20Controller%20R2.png)
+![System Block Diagram](08_Block_Diagrams/Block%20Diagram%20BLDC%20Motor%20Controller%20R3.png)
 
 ## Project Summary
 Design, build, and verify a sensored BLDC motor driver (six-step commutation), 24–48V DC input, with input EMI filtering, current sensing/protection, and closed-loop speed control.
@@ -31,12 +31,12 @@ Design, build, and verify a sensored BLDC motor driver (six-step commutation), 2
     - Obtain Battery Cell Characteristics
 
 - [x] Calculate Peak Power Drone Ratings
-- [ ] Estimate Dynamic Characteristics Of Drone
+- [x] Estimate Dynamic Characteristics Of Drone
 
 ### Electromechanical Plant Modeling (Motor + Propeller Load)
-- [ ] Derive state-space model: armature RL + back-EMF (from Kv/Kt) + rotor inertia + aero load torque (τ_load = k·ω², from prop Ct/Cq at 10,000 ft density)
+- [x] Derive state-space model: armature RL + back-EMF (from Kv/Kt) + rotor inertia + aero load torque (τ_load = k·ω², from prop Ct/Cq at 10,000 ft density)
 - [ ] Linearize around the 500g operating point; verify stability margins (Bode / root locus)
-- [ ] Extract I-V operating point from the plant model for power converter specs
+- [x] Extract I-V operating point from the plant model for power converter specs
 
 ### Closed-Loop Controller Simulation (Simulink)
 - [ ] Design cascaded current (inner) + speed (outer) PI loops
@@ -67,10 +67,10 @@ gantt
     HRS & ICD                          :done, req, 2026-08-26, 2d
 
     section Planning & Simulation
-    Project Planning & Plant/Controller Sim :active, plansim, after req, 3d
+    Project Planning & Plant/Controller Sim :done, plansim, after req, 3d
 
-    section Schematic Capture
-    Schematic Capture                  :schem, after plansim, 3d
+    section Power System Simulation
+    Power System Simulation            :active, schem, after plansim, 3d
 
     section SPICE Analysis
     SPICE Analysis                     :spice, after plansim, 3d

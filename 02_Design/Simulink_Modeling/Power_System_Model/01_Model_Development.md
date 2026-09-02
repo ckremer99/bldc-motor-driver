@@ -37,7 +37,7 @@ $$
 The sign convention we will use is that positive inductor current is current flowing into the positive terminal of the capacitor. Suggesting that positive current into the capacitor will increase the voltage. Below is the closed-switch expression 
 
 ---
-## The Control System
+## The Control System (In Progress)
 
 The transfer function of the output voltage in relation to input is given by:
 
