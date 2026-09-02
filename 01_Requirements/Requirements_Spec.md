@@ -5,29 +5,16 @@
 **Date:** — 26-Aug-2026
 
 ## 1. Scope
-This project walks though the design process. 
+This project walks though the design process of a drone-driver system. The scope of the requirments includes specifications for drone performance to provide a realistic view of what requirements would be given in an engineering setting. 
 
-## 2. Applicable Documents
-> Battery Pack: 6000 6S Battery Pack
+Although there are many more components to the drone system the project focuses on the driver board hence we will focus on the requirements of the driver rather than getting bogged down in the details. More depth would be added with a wider time-frame. 
 
-[Battery Information](https://maxamps.com/collections/lipo-5450mah-packs/products/lipo-5450-6s-22-2v-battery-pack?utm_medium=referral&utm_source=unmannedsystemstechnology.com)
-
-> Motor Model: MN501-S
-
-[Motor Datasheet](https://uav-en.tmotor.com/2018/navigato_0402/39.html)
-
-
-To select the propeller, we want to minimize the output current to make the FET selection less constraining. Based on the propeller selection guide given in the motor datasheet, we find the propeller that minimizes the current draw at 916g of thrust to be 2.87A. The output voltage at this thrust is 24.35 
-> Propeller Model: T-MOTOR P22×6.6 Polish Carbon Fiber Drone Propeller
-
-[Propeller Link](https://shop.tmotor.com/products/p22-6-6-carbon-fiber-uav-propeller?srsltid=AfmBOoruno4ZtllN6BsG9sj8xBzgtMtzC_fPKD7mWsG-d3jCablFLd4J)
-
-## 3. Functional Requirements
+## 2. Functional Requirements
 These requirements will be obtained by assessing the drone specifications. Each motor will contain it's own driver. This means we want the board and controller to be light-weight so the majority of the load can be the payload along with the chassis. We will define these in more detail in this document. 
 
 ### Drone Specifications
 
-This drone will be capable of flight at high-altitude (mountainous regions) optimized for battery life and aireal image capturing. The drone should spend most of its time hovering and climbing. We will define the flight characteristics to move upward at a constant rate of 10 m/s. Accelerating up to 2 m/s^2 upward. This requires a maximum thrust to be the drones weight times 2 m/s^2. The 10 m/s constraint reduces the need to consider air resistance from the chassis. 
+This drone will be capable of flight at high-altitude (mountainous regions) optimized for battery life and aireal image capturing. The drone should spend most of its time hovering and climbing. We will define the flight characteristics to move upward at a constant rate of 10 m/s. Accelerating up to 2 $m/sec^2$ upward. This requires a maximum thrust to be the drones weight times 2 m/s^2. The 10 m/s constraint reduces the need to consider air resistance from the chassis. 
 
 | Specification | Value |
 |---|---|
@@ -39,6 +26,32 @@ This drone will be capable of flight at high-altitude (mountainous regions) opti
 
 Note: Changed weight spec from 1 kg to 2.5 kg 
 - Justification: Supports heavier payload and makes project more interesting. 
+
+
+## 3. Basic Product Selection
+
+This section ensures realistic design decisions could be made using real parts that are currently in the market. 
+
+The motors together draw 40A around hovering thrust. If we want a 25 min flight time we need batteries that together supply ~16000 mA battery. 
+
+We need 3 of the following battery pack. The battery driver is beyond the scope of this project however the weight of the 3 packs is around 1.8 kg: 
+
+> Battery Pack: 6000 6S Battery Pack
+
+[Battery Information](https://maxamps.com/collections/lipo-5450mah-packs/products/lipo-5450-6s-22-2v-battery-pack?utm_medium=referral&utm_source=unmannedsystemstechnology.com)
+
+
+The motor chosen supports the thrust requirements of the system and its characteristics are given in a table on the website. 
+
+> Motor Model: MN501-S
+
+[Motor Datasheet](https://uav-en.tmotor.com/2018/navigato_0402/39.html)
+
+
+To select the propeller, we want to minimize the output current to make the FET selection less constraining. Based on the propeller selection guide given in the motor datasheet, we find the propeller that minimizes the current draw at 916g of thrust to be 2.87A. The output voltage at this thrust is 24.35 
+> Propeller Model: T-MOTOR P22×6.6 Polish Carbon Fiber Drone Propeller
+
+[Propeller Link](https://shop.tmotor.com/products/p22-6-6-carbon-fiber-uav-propeller?srsltid=AfmBOoruno4ZtllN6BsG9sj8xBzgtMtzC_fPKD7mWsG-d3jCablFLd4J)
 
 
 ---
@@ -57,20 +70,5 @@ Refer to [Calculations and Analysis](Calculations_and_Analysis.md) for derivatio
 | REQ-007 | Undervoltage lockout threshold: 14 V | Places strain on boost converter at that voltage | Digital power supply adjustments |
 | REQ-008 | Operating temperature range: -20 to 175 °C | Handles temps at altitude along with max switch ratings | Thermal camera analysis with driver drawing max steady-state current |
 
-## 4. EMI/EMC Requirements
-- [ ] Perform research of standards
-- [ ] Determine realistic requirements
-- [ ] Find models for EMI in circuit design
 
-## 5. Environmental / Mechanical Requirements
-
-- [ ] Chassis constraints 
-- [ ] Component weight breakdown
-- [ ] Board Dimensions
-
-## 6. Safety Requirements
-Protections: reverse-polarity; overcurrent
-
-## 7. Traceability
-[As you write DVTP test cases later, link each REQ-### to the test case ID that verifies it. Fill this in once 06_Test/DVTP.md exists.]
 

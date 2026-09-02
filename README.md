@@ -95,15 +95,15 @@ gantt
 
 | Phase | Document | Status |
 |---|---|---|
-| 1. Requirements | [Requirements Spec (HRS)](01_Requirements/Requirements_Spec.md) | In Progress |
-| 1. Requirements | [Calculations and Analysis](01_Requirements/Calculations_and_Analysis.md) | In Progress |
-| 2. Design — Simulink (Motor Model) | [Results & Model Summary](02_Design/Simulink_Modeling/BLDC_Motor_Model/01_Results_and_Model_Summary.md) | In Progress |
-| 2. Design — Simulink (Motor Model) | [Model Derivations](02_Design/Simulink_Modeling/BLDC_Motor_Model/02_Model_Derivations.md) | In Progress |
-| 2. Design — Simulink (Motor Model) | [Model Development](02_Design/Simulink_Modeling/BLDC_Motor_Model/03_Model_Development.md) | In Progress |
+| 1. Requirements | [Requirements Spec (HRS)](01_Requirements/Requirements_Spec.md) | Completed |
+| 1. Requirements | [Calculations and Analysis](01_Requirements/Calculations_and_Analysis.md) | Completed |
+| 2. Design — Simulink (Motor Model) | [Results & Model Summary](02_Design/Simulink_Modeling/BLDC_Motor_Model/01_Results_and_Model_Summary.md) | Completed |
+| 2. Design — Simulink (Motor Model) | [Model Derivations](02_Design/Simulink_Modeling/BLDC_Motor_Model/02_Model_Derivations.md) | Completed |
+| 2. Design — Simulink (Motor Model) | [Model Development](02_Design/Simulink_Modeling/BLDC_Motor_Model/03_Model_Development.md) | Completed |
 | 2. Design — Simulink (Power System) | [Power System Model Development](02_Design/Simulink_Modeling/Power_System_Model/01_Model_Development.md) | In Progress |
 | 2. Design — SPICE & Schematic | [Schematic Design Notes](02_Design/Spice_Analysis_and_Schematic/Schematic_Design_Notes.md) | Not started |
 | 2. Design — SPICE & Schematic | [SPICE Analysis](02_Design/Spice_Analysis_and_Schematic/SPICE_Analysis.md) | Not started |
-| 2. Design — SPICE & Schematic | [Control Algorithm Notes](02_Design/Spice_Analysis_and_Schematic/Control_Algorithm_Notes.md) | In Progress |
+| 2. Design — SPICE & Schematic | [Control Algorithm Notes](02_Design/Spice_Analysis_and_Schematic/Control_Algorithm_Notes.md) | Not started |
 | 3. Block Diagrams | [Block Diagram Revisions](03_Block_Diagrams/) | Reference images (R1–R3) |
 | Chassis Design Guide | [Boston University's Guide](https://sites.bu.edu/uav/first-build/step1/) | External reference |
 
