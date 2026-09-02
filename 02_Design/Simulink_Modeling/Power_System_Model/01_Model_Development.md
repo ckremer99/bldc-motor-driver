@@ -24,7 +24,7 @@ $$
 Where $v_L$ by KVL is the difference between $V_{in}$ and $R_{sense}$ (used to detect over-currents) when the switch is closed. Here is the expression for inductor current when the switch is closed: 
 
 $$
-    V_{in}-i_LR_{sense}=L\frac{di_L}{dt} \\[1.5ex]
+    V_{in}-i_LR_{sense}=L\frac{di_L}{dt}\\[1.5ex]
     \frac{di}{dt}=\frac{1}{L}(V_{in}-i_LR_{sense})
 $$
 
